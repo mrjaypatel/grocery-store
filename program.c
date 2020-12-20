@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 int getDiscountedPrice(int subTotal);
@@ -54,7 +55,8 @@ void getSingleOrder(){
     int qty = 1;
     int price = 0;
     printf("\nEnter Product Name:");
-    scanf("%s", CART_ITEMS[IN_CART]);
+    //Added below exp(%[^\n]) for accepting space
+    scanf(" %[^\n]", CART_ITEMS[IN_CART]);
     printf("Product QTY: ");
     scanf("%d", &qty);
     printf("Product Price: ");
@@ -93,6 +95,7 @@ int getDiscountedPrice(int subTotal){
         return 0;
 }
 
+//Get discount Number
 int getDiscount(int subTotal){
     if(subTotal>=1000 && subTotal<=2500)
         return 5;         
@@ -106,6 +109,7 @@ int getDiscount(int subTotal){
         return 0;
 }
 
+//Print Detailed Bill
 void printBill(){
     printf("\n*-------------+----------+-----------+------------*");
     printf("\n| ## 1 Invoice                                    |");
